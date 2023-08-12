@@ -1,0 +1,202 @@
+html{
+    /* background-image: linear-gradient(to right, white, hsla(220, 20%, 77%, 0.747) ); */
+    font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .background {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    .background video {
+        object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+    
+     .form-container {
+      color: rgb(247, 246, 246);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        margin: 0 auto ;
+        padding: 40px 20px;
+        background-color: #e2dddd;
+        border-radius: 20px;
+        box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+        text-align: center;
+        background-color: rgb(36, 35, 35);
+      }
+    
+        /* Style for the form title */
+        .form-title {
+          font-size: 35px;
+          text-align: center;
+          margin-bottom: 20px;
+        }
+    
+        /* Style for the form input fields */
+        .form-input {
+          width: 75%;
+          padding: 13px;
+          margin-bottom: 13px;
+          border: none;
+          border-radius: 3px;
+          background-color: #48484a;
+          color: rgb(235, 231, 231);
+        }
+    
+        /* Style for the form submit button */
+        .form-submit {
+          width: 75%;
+          padding: 15px;
+          margin-top: 10px;
+          background-color: #007bff;
+          color: #ffffff;
+          font-weight: bold;
+          border: none;
+          border-radius: 20px;
+          cursor: pointer;
+          background-color: rgb(235, 231, 231);
+          color: black;
+          letter-spacing: 2px;
+        }
+    
+        /* Style for the "forgotten password" link */
+        .forgotten-password {
+          text-align: center;
+          margin-top: 10px;
+        }
+    
+    
+    
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+      
+    }
+    
+    .switch input { 
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+    
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+    
+    input{
+      background-color: #303031;
+    }
+    
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+    
+    input:focus + .slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+    
+    input:checked + .slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+    
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 34px;
+    }
+    
+    .slider.round:before {
+      border-radius: 50%;
+    }
+    
+    /* Define keyframes animation */
+    @keyframes fade-in {
+        from {
+            transform: rotateY(0deg);
+            opacity: 0;
+        }
+        to {
+            transform: rotateY(360deg);
+            opacity: 1;
+        }
+    }
+    
+    /* Apply keyframes animation to an element */
+    .fade-in {
+        animation-name: fade-in;
+        animation-duration: 1s;
+        animation-timing-function: ease;
+    }
+    
+    .forgotten-password{
+      /* float: left; */
+      color: rgb(235, 231, 231);
+    }
+    
+    .btn {
+      width: 80%;
+      padding: 12px;
+      border: none;
+      border-radius: 20px;
+      margin: 5px 0;
+      opacity: 0.85;
+      display: inline-block;
+      font-size: 17px;
+      line-height: 20px;
+      text-decoration: none; /* remove underline from anchors */
+      background-color: rgb(36, 35, 35);
+      border:1px solid rgb(235, 231, 231);
+      color: rgb(235, 231, 231);
+    }
+    
+    
+    .btn i{
+    float: left;
+    margin-top: 9px;
+    }
+
+    .submit:hover {
+      background: #03e9f4;
+      color: #fff;
+      /* border-radius: 5px; */
+      box-shadow: 0 0 5px #03e9f4,
+          0 0 25px #03e9f4,
+          0 0 50px #03e9f4,
+          0 0 100px #03e9f4;
+  }

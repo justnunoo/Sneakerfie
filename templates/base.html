@@ -1,0 +1,132 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNEAKER FIE</title>
+    <meta name="keywords" content="Shoes, Nike, Adidas, Jordan, Vans, Puma, New Balance">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+          <ul class="topmenu">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="#shop">Shop</a></li>
+  
+            <li class="dropdown">
+              <a href="#categories">Categories</a>            
+              <div class="dropdown-content">
+                <a href="./men shoes.html">Men's Shoes</a>
+                  <a href="./women shoes.html">Women's Shoes</a>
+                  <a href="./kid shoes.html">Kid's Shoes</a>
+                  <a href="./running shoes.html">Running Shoes</a>
+                  <a href="./basketball shoes.html">Basketball Shoes</a>
+                  <a href="./sneakers.html">Sneakers</a>
+                  <a href="./boots.html">Boots</a>
+                  <a href="./formal shoes.html">Formal Shoes</a>
+                  <a href="./slippers.html">Slippers</a>
+              </div>
+        </li>
+            
+          <li class="dropdown">
+              <a href="#brand">Brand</a>
+              <div class="dropdown-content">
+              <a href="{% url 'nike' %}">Nike</a>
+              <a href="{% url 'adidas' %}">Adidas</a>
+              <a href="{% url 'jordan' %}">Jordan</a>
+              <a href="{% url 'puma' %}">Puma</a>
+              <a href="{% url 'vans' %}">Vans</a>
+              <a href="{% url 'reebok' %}">Reebok</a>
+              <a href="{% url 'new_balance' %}">New Balance</a>
+              <a href="{% url 'balenciaga' %}"> Balenciaga</a>
+              </div>
+        </li>
+  
+            <li><a href="#contact">Contact</a></li>
+          
+            {% if user.is_authenticated %}
+            <li class="right dropdown" class="user_icon" style="margin-left: auto; border-radius: 100px;">
+              <a title="Welcome {{user.username}}"><i class="fa-solid fa-user fa-xl"></i></a></li>
+  
+              <li><a href="{% url 'cart' %}"><i class="fa-solid fa-cart-shopping fa-bounce fa-xl"></i>
+                <span id="cart-count">{{ cart_items_count }}</span></a></li>
+            {% else %}
+            <li class="user" style="margin-left: auto; background-color: #22B0BF;"><a href="{% url 'register' %}">Signup</a></li>
+            {% endif %}
+            
+            {% if user.is_authenticated %}
+            <li class="user" style="background-color: #22B0BF;"><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+            <li class="user" style="background-color: #22B0BF;"><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+  
+            <li><form method="GET" action="{% url 'search' %}">
+              <input type="text" name="query" class="search" style="height: 30px;border-radius: 10px;border: 2px solid #ccc;transition: border-color 0.3s ease-in-out; background-color: white !important;">
+              
+              <!-- <button type="submit" class="search" style="height: 30px;border-radius: 10px;border: 2px solid #ccc;transition: border-color 0.3s ease-in-out;">Search</button> -->
+            </form></li>
+          </ul>
+        </nav>
+      </header>
+
+      {% block content %}
+      {% endblock %}
+
+
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-3">
+              <h5>About Us</h5>
+              <p>Learn more about our company and mission.</p>
+              <a href="#">Read More</a>
+            </div>
+            <div class="col-sm-3">
+              <h5>Customer Service</h5>
+              <ul>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Shipping & Returns</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-3">
+              <h5>Shop</h5>
+              <ul>
+                <li><a href="#">Men's Shoes</a></li>
+                <li><a href="#">Women's Shoes</a></li>
+                <li><a href="#">Kids' Shoes</a></li>
+              </ul>
+            </div>
+            <div class="col-sm-3">
+              <h5>Follow Us</h5>
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+      <script src="{% static 'options.js' %}" ></script>
+</body>
+</html>

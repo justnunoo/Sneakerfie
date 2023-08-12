@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+    <section class="hero-section" style="background-image: url('{% static "aesthetic nike shoe.png" %}');">
+      {% if user.is_authenticated %}
+      <h1>Welcome to our Shoe Store, {{user.username}}</h1>
+      {% else %}
+      <h1>Welcome to our Shoe Store </h1>
+      {% endif %}
+      <p>Find your perfect pair of shoes today!</p>
+    </section>
+    <br>
+    <div class="shoe-grid">
+      {% for box in boxes|slice:":" %}
+          <div class="shoe-card">
+            <a href="{% url 'product_detail' box.id %}">
+                <img class="box" src="{% static box.img %}">
+                <div class="colors">
+                    {% for image in box.get_small_images %}
+                        <img class="small-image" src="{% static image.img %}" alt="Red">
+                    {% endfor %}
+                </div>
+                <div class="price"><span>&#8373;</span>{{ box.price }}</div>
+                <div class="shoe-name">{{ box.name }}</div>
+              </a>
+           </div>
+        {% endfor %}
+        <!-- Add more shoe items as needed -->
+    </div>
+{% endblock %}

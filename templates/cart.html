@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+{% block content %}
+<div style="margin-top: 100px;">
+    <h2>Cart</h2>
+    {% if items %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Size</th>
+                    <th>Color</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                    <tr>
+                        <td>{{ item.product.name }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.size }}</td>
+                        <td>{{ item.color }}</td>
+                        <td>{{ item.product.price }}</td>
+                        <td><a href="{% url 'remove_from_cart' item.id %}"><i class="fa-solid fa-xmark" style="color: #0c0d0e;"></i></i></a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Your cart is empty</p>
+    {% endif %}
+
+    <a href="{% url 'empty_cart' %}">Empty Cart</a>
+</div>
+
+<!-- {% for item in items %}
+  <div class="cart-item">
+    <div class="cart-image">
+      <img src="{{ item.product.img.url }}" alt="{{ item.product.name }}">
+    </div>
+    <div class="cart-details">
+      <h4>{{ item.product.name }}</h4>
+      <p>Size: {{ item.size }}</p>
+      <p>Color: {{ item.color }}</p>
+      <p>Quantity: {{ item.quantity }}</p>
+    </div>
+  </div>
+{% endfor %} -->
+
+{% endblock %}

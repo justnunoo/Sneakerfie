@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div style="width: 90%; margin: auto; margin-top: 100px;">
+  
+    <div class="shoe-card" style="">
+          <img class="box" style="max-width: 400px ;" src="{% static product.img %}">
+          <div class="colors">
+              {% for image in product.get_small_images %}
+                  <img class="small-image" style="max-width: 400px ;" src="{% static image.img %}" alt="image">
+              {% endfor %}
+          </div>
+          <div class="price"><span>&#8373;</span>{{ product.price }}</div>
+          <div class="shoe-name">{{ product.name }}</div>
+    
+
+    <h1>{{ product.name }}</h1>
+  <p>{{ product.description }}</p>
+  <p>Price: <span>&#8373;</span> {{ product.price }}</p>
+  <form method="post" action="{% url 'add_to_cart' product.id %}">
+    {% csrf_token %}
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" name="quantity" value="1" min="1" max="10">
+    <div>Size: 
+      {% for size in product.sizes.all %}
+            <input type="radio" name="size" value="{{ size.id }}" id="size{{ size.id }}" required>
+            <label for="size{{ size.id }}">{{ size.size }}</label>
+        {% endfor %}
+    </div>
+    <div>Colors:
+      <!-- {% for color in product.colors.all %}
+        <input type="radio" name="color" value="{{ color.name }}" id="{{ color.name }}" required>
+        <label for="{{ color.name }}">{{ color.name }}</label>
+    {% endfor %}     -->
+    {% for color in product.colors.all %}
+    <input type="radio" name="color" value="{{ color.id }}" id="{{ color.name }}" required>
+    <label for="{{ color.name }}">{{ color.name }}</label>
+{% endfor %}
+  </div>
+    <button type="submit">Add to cart</button>
+  </form>
+
+  
+  </div>
+    
+</div>>
+  
+{% endblock %}

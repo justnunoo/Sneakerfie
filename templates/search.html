@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  {% if products %}
+  <h1 style="margin-top: 10%;">Showing search result for '{{query}}'</h1>
+  <div class="shoe-grid">
+      {% for product in products %}
+          <div class="shoe-card">
+              <a href="{% url 'product_detail' product.id %}">
+                  <img class="box" src="{% static product.img %}">
+                  <div class="colors">
+                      {% for image in product.get_small_images %}
+                          <img class="small-image" src="{% static image.img %}" alt="Red">
+                      {% endfor %}
+                  </div>
+                  <div class="price"><span>&#8373;</span>{{product.price}}</div>
+                  <div class="shoe-name">{{product.name}}</div>
+              </a>
+          </div>
+      {% endfor %}
+  </div>
+  {% else %}
+      <h1 style="margin-top: 10%;">No result found for '{{query}}'</h1>
+  {% endif %}
+
+{%  endblock%}

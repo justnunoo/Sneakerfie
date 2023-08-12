@@ -1,0 +1,260 @@
+html{
+/* background-image: linear-gradient(to right, white, hsla(220, 20%, 77%, 0.747) ); */
+background-image: linear-gradient(to right, rgb(235, 231, 231), #d3d3d3); /* Define your gradient colors */
+  animation-name: gradientAnimation;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate; /* Make the animation go back and forth */
+  animation-iteration-count: infinite; /* Repeat the animation infinitely */
+font-family: Arial, Helvetica, sans-serif;
+}
+
+/* @keyframes backgrounds{
+  from {
+    background-image: linear-gradient(to right, white, hsla(220, 20%, 77%, 0.747) );
+  }
+  to{
+    background-image: linear-gradient(to right, hsla(220, 20%, 77%, 0.747) , white);
+  }
+} */
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: left top; background-image: linear-gradient(to right, rgb(235, 231, 231), #d3d3d3);/* Start position of the gradient */
+  }
+  100% {
+    background-position: right bottom; background-image: linear-gradient(to right, rgb(235, 231, 231), #d3d3d3); /* End position of the gradient */
+  }
+}
+
+header {
+display: flex;
+justify-content: center;
+background-color: #D9DBDE;
+padding: 1em;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header nav ul li {
+    display: inline-block;
+  }
+  
+  header nav a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+
+nav ul {
+display: flex;
+list-style-type: none;
+margin: 0;
+padding: 0;
+}
+
+nav li {
+margin: 0 1em;
+}
+
+nav a {
+color: #333;
+text-decoration: none;
+padding: 0.5em 1em;
+border-radius: 5px;
+}
+
+nav{
+  position: fixed;
+  width: 100% !important;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  z-index: 999;
+  background-color: rgb(249, 252, 253);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* nav a:hover {
+background-color: #22B0BF; rgba(220, 26, 26, 0.435)  
+color: #22B0BF;
+transform: scale(1.1);
+transition-delay: 0.2s;
+} */
+
+nav a:not(.user_icon):hover {
+  color: #22B0BF;
+  transform: scale(1.1);
+  transition-delay: 0.2s;
+}
+
+/*this  is to create a dropdown menu for the brands */
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+ .search:hover, .search:focus{
+    outline: none;
+    border-color: #22B0BF;
+    box-shadow: 0 0 5px #22B0BF;
+ }
+
+a{
+  cursor: pointer;
+}
+
+.user:hover{
+  color: #000;
+}
+
+#content{
+  top: 200px;
+}
+
+.hero-section {
+width: 90%;
+margin-left: auto;
+margin-right: auto;
+display: flex;
+flex-direction: column;
+align-items: center;
+background-size: cover;
+background-position: center;
+height: 70vh;
+color: #f2f2f2;
+text-align: center;
+padding-top: 100px;
+}
+.hero-section h1 {
+font-size: 3em;
+margin-top: 1em;
+}
+.hero-section p {
+font-size: 1.5em;
+margin-bottom: 1em;
+}
+
+.shoe-grid {
+display:grid;
+grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));grid-gap: 20px;
+text-decoration: none;
+width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+}
+
+.shoe-grid img {
+width: 100%;
+height: 300px;
+object-fit: fill;
+}
+
+.shoe-grid h5 {
+margin-top: 10px;
+text-align: center;
+}
+
+.shoe-grid a {
+color: #333;
+display: block;
+text-decoration: none;
+}
+
+.shoe-grid a:hover {
+text-decoration: none;
+}
+
+.shoe-grid .shoe-card:hover {
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+  transform: scale(1.05);
+  transition: all 0.2s ease-in-out;
+  transition-delay: 0.2s ease;
+
+}
+.shoe-card{
+    max-width: 300px;
+    margin-bottom: 10px;
+}
+
+.colors {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  display: flex;
+}
+
+.colors img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.colors img:hover {
+  border: 2px solid #000;
+}
+
+.price, .shoe-name{
+  margin-top: 15px;
+}
+
+.price{
+  margin-right: auto;
+}
+.shoe-name{
+  font-size: 16px;
+  text-align: center;
+}
+
+footer {
+background-color: #333;
+color: #fff;
+padding: 30px 0;
+}
+
+footer h5 {
+color: #fff;
+font-size: 18px;
+margin-bottom: 15px;
+}
+
+footer a {
+color: #fff;
+}
+
+footer a:hover {
+color: #ddd;
+}
+
+footer ul {
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+footer .list-inline-item i {
+font-size: 24px;
+margin-right: 10px;
+}

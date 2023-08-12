@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<br>
+<h1 style="text-align: center; padding-top: 50px;">Reebok Shoes</h1>
+<br>
+<div class="shoe-grid">
+  {% for box in boxes|slice:":" %}
+      <div class="shoe-card">
+        <a href="{% url 'product_detail' box.id %}">
+            <img class="box" src="{% static box.img %}">
+            <div class="colors">
+                {% for image in box.get_small_images %}
+                    <img class="small-image" src="{% static image.img %}" alt="Red">
+                {% endfor %}
+            </div>
+            <div class="price"><span>&#8373;</span>{{ box.price }}</div>
+            <div class="shoe-name">{{ box.name }}</div>
+          </a>
+        </div>
+    {% endfor %}
+    <!-- Add more shoe items as needed -->
+</div>
+{% endblock %}

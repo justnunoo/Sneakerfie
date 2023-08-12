@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'register.css' %}">
+
+
+    <div class="background">
+        <video src="{% static 'shoe_vid.mp4' %}" autoplay loop muted></video>
+
+        <!-- this contains the signup and the login form -->
+ <div class="form-container">
+   
+      <!-- Login form -->
+      <div id="loginForm" style="margin-top: 20px;">
+        <div class="form-title">Log in</div>
+
+        <form  method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+          <input type="text" class="form-input" placeholder="Username" name="username">
+
+          <i class="far fa-envelope"  style="margin-left: -30px;"></i>
+         
+          <input type="password" class="form-input" placeholder="Password" id="login_pass" name="password">
+         
+          <i class="far fa-eye" id="togglePassword" data-target="login_pass" style="margin-left: -30px; cursor: pointer;"></i>
+
+          <div class="reset">
+            <a href="#"  style="color: rgb(235, 231, 231); float: left; margin-left: 40px; font-size: 12px;">Reset Password</a>
+          </div>
+          <br>
+         
+          <input type="submit" value="LOG IN" name="login" class="form-submit submit" >
+        
+        </form>
+        
+        
+        <br>
+        
+        <!-- this is used to create a horizontal line with the text "or" in the middle -->
+        <div style="display: flex; align-items: center; text-align: center; width: 80%;padding-left: 10%;">
+        
+          <hr style="flex-grow: 1; border: none; border-top: 1px solid rgb(235, 231, 231);">
+        
+          <span style="padding: 0 10px; color: rgb(235, 231, 231); font-weight: bold;">OR</span>
+        
+          <hr style="flex-grow: 1; border: none; border-top: 1px solid rgb(235, 231, 231);">
+
+        </div>
+        <br>
+
+        <!-- this part creates links to facebook, twitter and google to help login users -->
+        <div class="col">
+        
+          <a href="#" class="fb btn">
+            <i class="fa-brands fa-facebook fa-xl" style="color: #075ced;"></i> Continue with Facebook
+           </a>
+
+          <a href="#" class="google btn"><i class="fa-brands fa-google fa-xl" style="color: #f20707;"></i>
+             Continue with Google
+          </a>
+          
+          <a href="#" class="apple btn">
+            <i class="fa-brands fa-apple fa-xl" style="color: #e9ecf1;"></i></i> Continue with Apple
+          </a>
+        
+          <h4>Don't have an account?<a href="{% url 'register' %}" style="color: rgb(17, 215, 222); text-decoration: none;"> Signup</a></h4>
+        
+          {% for message in messages %}
+            {% if message == 'You are now registered and can log in' %}
+                <h5 style="color: green; margin-top: 20px;" id="message">{{ message }}</h5>
+            {% else %}
+                <h5 style="color: red; margin-top: 20px;" id="message">{{ message }}</h5>
+            {% endif %}
+          {% endfor %}
+
+
+        </div>
+      </div>
+ </div>
+</div>
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    const passwordToggles = document.querySelectorAll('#togglePassword');
+
+    passwordToggles.forEach(function (toggle) {
+        toggle.addEventListener('click', function () {
+            const targetId = this.getAttribute('data-target');
+            const passwordInput = document.getElementById(targetId);
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.classList.toggle('fa-eye-slash');
+        });
+    });
+});
+
+</script>
+
+{% endblock %}
+
