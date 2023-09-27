@@ -1,2 +1,2 @@
 # sneaker_fie
- sneaker fie website
+ an ecommerce website for the best affordable shoes
