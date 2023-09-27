@@ -159,6 +159,7 @@ def register(request):
         if 'signup' in request.POST:
             username = request.POST['username']
             email = request.POST['email']
+            number = request.POST['user_number']
             password1 = request.POST['password1']
             password2 = request.POST['password2']
 
